@@ -10,19 +10,14 @@ import androidx.core.net.toUri
 class SummaryActivity : AppCompatActivity() {
 
     private lateinit var user: User
-
     private lateinit var binding: ActivitySummaryBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_summary)
 
         binding = ActivitySummaryBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
         retrieveUser()
         displayUser()
         setupClickListeners()
@@ -31,7 +26,6 @@ class SummaryActivity : AppCompatActivity() {
 
     private fun retrieveUser() {
         user = intent.getSerializableExtra("User") as User
-
     }
 
     private fun displayUser() {
@@ -39,7 +33,6 @@ class SummaryActivity : AppCompatActivity() {
         binding.textViewEmailAddress.text = user.email
         binding.textViewPhone.text = user.phone
     }
-
 
     private fun setupClickListeners() {
         binding.textViewEmailAddress.setOnClickListener{

@@ -1,5 +1,6 @@
 package pl.pawel.registrationformapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
@@ -12,11 +13,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setContentView(R.layout.activity_main)
         setupSpinner()
         setupButton()
     }
@@ -38,7 +37,9 @@ class MainActivity : AppCompatActivity() {
             password = binding.editTextPassword.text.toString()
         )
 
-
+        val previewIntent = Intent(this, SummaryActivity::class.java)
+        previewIntent.putExtra("User", user)
+        startActivity(previewIntent)
 
     }
 
